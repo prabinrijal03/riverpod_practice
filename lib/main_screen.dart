@@ -7,7 +7,6 @@ class MainScreen extends HookConsumerWidget {
   final Widget child;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // ignore: prefer_const_constructors
-    return Scaffold(bottomNavigationBar: BottomNavBar(), body: child);
+    return Scaffold(bottomNavigationBar: const BottomNavBar(), body: child);
   }
 }
