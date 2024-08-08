@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screen/Sign_in/sign_in_screen.dart';
+import 'package:flutter_application_1/Screen/features/Getting_Started/get_started.dart';
 import 'package:flutter_application_1/Screen/features/heightCheck.dart';
 import 'package:flutter_application_1/Screen/features/moodCheck.dart';
 import 'package:flutter_application_1/Screen/home.dart';
@@ -6,14 +8,25 @@ import 'package:flutter_application_1/main_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-enum AppRoute { home, mood, height, main }
+enum AppRoute {
+  getStart,
+  home,
+  mood,
+  height,
+  main,
+}
 
 final goRouterProvider = Provider<GoRouter>(
   (ref) {
     return GoRouter(
-      initialLocation: '/home',
+      initialLocation: '/getStart',
       debugLogDiagnostics: false,
       routes: [
+        GoRoute(
+          path: '/getStart',
+          name: AppRoute.getStart.name,
+          builder: (context, state) => GetStarted(),
+        ),
         ShellRoute(
             builder: (context, state, child) {
               return MainScreen(child: child);
